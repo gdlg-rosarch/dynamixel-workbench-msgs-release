@@ -9,6 +9,7 @@ project(dynamixel_workbench_msgs)
 ################################################################################
 find_package(catkin REQUIRED COMPONENTS
   message_generation
+  std_msgs
 )
 
 ################################################################################
@@ -17,13 +18,18 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   AX.msg
-  RX.msg
-  MX.msg
   EX.msg
-  XL.msg
-  XM.msg
-  XH.msg
+  MX.msg
+  MX2.msg
+  MX2Ext.msg
+  MXExt.msg
   PRO.msg
+  RX.msg
+  XH.msg
+  XL.msg
+  XL320.msg
+  XM.msg
+  XMExt.msg
 
   DynamixelState.msg
   DynamixelStateList.msg
@@ -40,7 +46,7 @@ add_service_files(
 )
 
 generate_messages(
-  DEPENDENCIES
+  DEPENDENCIES std_msgs
 )
 
 ################################################################################
@@ -51,15 +57,13 @@ generate_messages(
 # Catkin specific configuration
 ################################################################################
 catkin_package(
-   CATKIN_DEPENDS message_generation
+   CATKIN_DEPENDS message_runtime std_msgs
 )
 
 ################################################################################
 # Build
 ################################################################################
-include_directories(
-  ${catkin_INCLUDE_DIRS}
-)
+
 
 ################################################################################
 # Install
